@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amith Pasam - Ministry with International Students</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Amith Pasam</h1>
+            <p class="tagline">Ministering to International Students with the Love of Christ</p>
+            <div class="cta-buttons">
+                <a href="https://internationalstudents.org/team/amith-pasam/" class="btn giving-btn">Support My Ministry</a>
+                <a href="https://amith-pasam-isi.epistle.org/subscribe" class="btn subscribe-btn">Subscribe for Updates</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">My Story</a></li>
+                <li><a href="#ministry">My Ministry</a></li>
+                <li><a href="#bridges">Bridges</a></li>
+                <li><a href="#isi">ISI</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>"The Lord has been my strength and guide through every trial..."</h2>
+                <p>Born and raised in a Christian family in India, my personal relationship with Jesus deepened through trials and experiences. From overcoming fear and stress with the promises of Scripture to trusting Him through a severe accident, I've seen God's faithfulness at every turn.</p>
+                <!-- Add your personal photo here -->
+                <div class="photo-placeholder">
+                    [Your Photo - Upload as "profile.jpg" to images folder]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ministry" class="dark-section">
+        <div class="container">
+            <h2>My Ministry Calling</h2>
+            <p>Today, my ministry focuses on sharing the hope of Christ with international students like me. Having faced challenges as a student navigating new environments, I am passionate about helping others find their identity and purpose in Christ.</p>
+            <p>Inspired by the Great Commission, I serve with the goal of guiding international students to know Jesus, experience His love, and walk confidently in His plan for their lives.</p>
+        </div>
+    </section>
+
+    <section id="bridges">
+        <div class="container">
+            <h2>Bridges Ministry</h2>
+            <p>I'm actively involved with Bridges International, a ministry that exists "to see every international student wholeheartedly follow Jesus, both on campus and around the world."</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Our Vision</h3>
+                    <p>Growing genuine communities of international students who welcome seekers and help each other to follow Jesus.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Approach</h3>
+                    <p>We empower international students to lead in ministry, reach their classmates with the gospel, and grow in Christ throughout their time in the U.S.</p>
+                </div>
+                <div class="card">
+                    <h3>Get Involved</h3>
+                    <p>Bridges offers multiple ways to engage from hospitality support to mentoring and leadership roles.</p>
+                    <a href="https://www.bridgesfriends.com/" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="isi" class="dark-section">
+        <div class="container">
+            <h2>International Students, Inc. (ISI)</h2>
+            <p>I serve with ISI, a ministry dedicated to reaching international students with the love of Christ and connecting them with local Christians.</p>
+            <p>ISI provides opportunities for friendship, cultural exchange, and spiritual growth for students far from home.</p>
+            <a href="https://internationalstudents.org/about-us/" class="btn">About ISI</a>
+            
+            <!-- Add a group photo with students here -->
+            <div class="photo-placeholder wide">
+                [Group Photo with Students - Upload as "ministry.jpg" to images folder]
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Connect With Me</h2>
+            <p>I'd love to share more about my ministry and how you can be involved in reaching international students for Christ.</p>
+            <div class="contact-info">
+                <p>Email: [Your Email Address]</p>
+                <p>Phone: [Your Phone Number]</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="https://internationalstudents.org/team/amith-pasam/" class="btn giving-btn">Support My Ministry</a>
+                <a href="https://amith-pasam-isi.epistle.org/subscribe" class="btn subscribe-btn">Subscribe for Updates</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Amith Pasam - Ministry to International Students</p>
+            <div class="footer-links">
+                <a href="https://www.bridgesfriends.com/">Bridges International</a>
+                <a href="https://internationalstudents.org/">International Students, Inc.</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
