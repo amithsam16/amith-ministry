@@ -7,22 +7,23 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body> 
-<header class="video-header">
-  <video autoplay muted loop playsinline>
-    <source src="images/cover-video.mp4" type="video/mp4">
-    <!-- Fallback image if video fails to load -->
-    <img src="images/cover-photo.jpg" alt="Fallback cover image">
-  </video>
-  <div class="header-content">
-    <h1>Amith Pasam</h1>
-    <p class="tagline">Ministering to International Students with the Love of Christ</p>
-    <div class="cta-buttons">
-      <a href="https://internationalstudents.org/team/amith-pasam/" class="btn giving-btn">Support My Ministry</a>
-      <a href="https://amith-pasam-isi.epistle.org/subscribe" class="btn subscribe-btn">Subscribe for Updates</a>
-    </div>
-  </div>
-</header>
+<body>
+    <header class="video-header">
+        <video autoplay muted loop playsinline>
+            <source src="images/cover-video.mp4" type="video/mp4">
+            <!-- Fallback image if video fails to load -->
+            <img src="images/cover-photo.jpg" alt="Fallback cover image">
+        </video>
+        <div class="header-content">
+            <h1>Amith Pasam</h1>
+            <p class="tagline">Ministering to International Students with the Love of Christ</p>
+            <div class="cta-buttons">
+                <a href="https://internationalstudents.org/team/amith-pasam/" class="btn giving-btn">Support My Ministry</a>
+                <a href="https://amith-pasam-isi.epistle.org/subscribe" class="btn subscribe-btn">Subscribe for Updates</a>
+            </div>
+        </div>
+    </header>
+
     <nav>
         <div class="container">
             <ul>
@@ -30,6 +31,7 @@
                 <li><a href="#ministry">My Ministry</a></li>
                 <li><a href="#bridges">Bridges</a></li>
                 <li><a href="#isi">ISI</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -40,9 +42,8 @@
             <div class="hero-content">
                 <h2>"The Lord has been my strength and guide through every trial..."</h2>
                 <p>Born and raised in a Christian family in India, my personal relationship with Jesus deepened through trials and experiences. From overcoming fear and stress with the promises of Scripture to trusting Him through a severe accident, I've seen God's faithfulness at every turn.</p>
-                <!-- Add your personal photo here -->
                 <div class="photo-placeholder">
-                    [Your Photo - Upload as "profile.jpg" to images folder]
+                    <img src="images/profile.jpg" alt="Amith Pasam">
                 </div>
             </div>
         </div>
@@ -79,16 +80,32 @@
         </div>
     </section>
 
-    <section id="isi" class="dark-section">
+    <section id="isi" class="background-section">
+      <div class="background-overlay"></div>
+      <div class="container">
+        <div class="content-wrapper">
+          <h2>International Students, Inc. (ISI)</h2>
+          <p>I serve with ISI, a ministry dedicated to reaching international students with the love of Christ and connecting them with local Christians.</p>
+          <p>ISI provides opportunities for friendship, cultural exchange, and spiritual growth for students far from home.</p>
+          <a href="https://internationalstudents.org/about-us/" class="btn">About ISI</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Rotating Gallery Section -->
+    <section id="gallery" class="dark-section">
         <div class="container">
-            <h2>International Students, Inc. (ISI)</h2>
-            <p>I serve with ISI, a ministry dedicated to reaching international students with the love of Christ and connecting them with local Christians.</p>
-            <p>ISI provides opportunities for friendship, cultural exchange, and spiritual growth for students far from home.</p>
-            <a href="https://internationalstudents.org/about-us/" class="btn">About ISI</a>
-            
-            <!-- Add a group photo with students here -->
-            <div class="photo-placeholder wide">
-                [Group Photo with Students - Upload as "ministry.jpg" to images folder]
+            <h2>Ministry Moments</h2>
+            <div class="rotating-gallery">
+                <div class="gallery-item active">
+                    <img src="images/gallery1.jpg" alt="Ministry moment with students">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery2.jpg" alt="Bible study group">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery3.jpg" alt="Campus outreach event">
+                </div>
             </div>
         </div>
     </section>
@@ -98,8 +115,8 @@
             <h2>Connect With Me</h2>
             <p>I'd love to share more about my ministry and how you can be involved in reaching international students for Christ.</p>
             <div class="contact-info">
-                <p>Email: [Your Email Address]</p>
-                <p>Phone: [Your Phone Number]</p>
+                <p>Email: your.email@example.com</p>
+                <p>Phone: (123) 456-7890</p>
             </div>
             <div class="cta-buttons">
                 <a href="https://internationalstudents.org/team/amith-pasam/" class="btn giving-btn">Support My Ministry</a>
@@ -117,5 +134,23 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Auto-rotate gallery every 10 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.gallery-item');
+            let currentIndex = 0;
+            
+            function rotateGallery() {
+                items[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % items.length;
+                items[currentIndex].classList.add('active');
+            }
+            
+            // Initial call and set interval
+            rotateGallery();
+            setInterval(rotateGallery, 10000); // 10 seconds
+        });
+    </script>
 </body>
 </html>

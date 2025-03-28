@@ -140,6 +140,48 @@ section {
     background-color: var(--light-color);
 }
 
+/* Background Section Styles */
+.background-section {
+    position: relative;
+    padding: 5rem 0;
+    background: url('../images/isi-group-bg.jpg') center/cover no-repeat;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.background-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.background-section .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 8px;
+}
+
+.background-section .btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: 2px solid white;
+}
+
+.background-section .btn:hover {
+    background-color: white;
+    color: var(--accent-color);
+}
+
 h2 {
     text-align: center;
     margin-bottom: 2rem;
@@ -189,12 +231,17 @@ h2 {
     width: 200px;
     height: 200px;
     margin: 2rem auto;
-    background-color: #ddd;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-light);
+    overflow: hidden;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .photo-placeholder.wide {
@@ -202,6 +249,34 @@ h2 {
     height: 300px;
     border-radius: 8px;
     margin: 2rem auto;
+}
+
+/* Rotating Gallery Styles */
+.rotating-gallery {
+    position: relative;
+    height: 400px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.gallery-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.gallery-item.active {
+    opacity: 1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Contact Section */
@@ -256,6 +331,18 @@ footer {
     .video-header {
         height: 200px;
     }
+
+    .rotating-gallery {
+        height: 300px;
+    }
+
+    .background-section {
+        padding: 3rem 0;
+    }
+
+    .background-section .content-wrapper {
+        padding: 1.5rem;
+    }
 }
 
 /* Mobile-specific video fixes */
@@ -265,5 +352,17 @@ footer {
     }
     .video-header {
         background: url('images/cover-photo.jpg') center/cover no-repeat;
+    }
+
+    .rotating-gallery {
+        height: 250px;
+    }
+
+    .background-section {
+        padding: 2rem 0;
+    }
+
+    .background-section .content-wrapper {
+        padding: 1rem;
     }
 }
