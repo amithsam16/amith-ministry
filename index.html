@@ -4,152 +4,610 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amith Pasam - Ministry with International Students</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F6F52;
+            --secondary: #739072;
+            --accent: #ECE3CE;
+            --dark: #1A1A1A;
+            --light: #F8F9FA;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .video-header {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .video-header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+        
+        .nav-scrolled {
+            background: rgba(26, 26, 26, 0.95);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .gallery-item {
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .gallery-item.active {
+            opacity: 1;
+        }
+        
+        .gallery-container {
+            height: 500px;
+            position: relative;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50">
+    <!-- Header with Video Background -->
     <header class="video-header">
-        <video autoplay muted loop playsinline>
+        <video autoplay muted loop playsinline class="w-full h-full object-cover">
             <source src="images/cover-video.mp4" type="video/mp4">
-            <!-- Fallback image if video fails to load -->
-            <img src="images/cover-photo.jpg" alt="Fallback cover image">
+            <img src="images/cover-photo.jpg" alt="Fallback cover image" class="w-full h-full object-cover">
         </video>
-        <div class="header-content">
-            <h1>Amith Pasam</h1>
-            <p class="tagline">Ministering to International Students with the Love of Christ</p>
-            <div class="cta-buttons">
-                <a href="https://internationalstudents.org/team/amith-pasam/" class="btn giving-btn">Support My Ministry</a>
-                <a href="https://amith-pasam-isi.epistle.org/subscribe" class="btn subscribe-btn">Subscribe for Updates</a>
+        <div class="header-overlay"></div>
+        <div class="header-content text-white">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 fade-in">Amith Pasam</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl fade-in delay-1">Ministering to International Students with the Love of Christ</p>
+            <div class="flex flex-col sm:flex-row gap-4 fade-in delay-2">
+                <a href="https://internationalstudents.org/team/amith-pasam/" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-hands-helping mr-2"></i> Support My Ministry
+                </a>
+                <a href="https://amith-pasam-isi.epistle.org/subscribe" class="bg-white hover:bg-gray-100 text-emerald-700 font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-envelope mr-2"></i> Subscribe for Updates
+                </a>
+            </div>
+            <div class="absolute bottom-10 fade-in delay-3">
+                <a href="#about" class="text-white text-2xl animate-bounce">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
             </div>
         </div>
     </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">My Story</a></li>
-                <li><a href="#ministry">My Ministry</a></li>
-                <li><a href="#bridges">Bridges</a></li>
-                <li><a href="#isi">ISI</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-white text-2xl font-bold">Amith Pasam</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-white hover:text-emerald-300 transition duration-300">My Story</a>
+                    <a href="#ministry" class="text-white hover:text-emerald-300 transition duration-300">My Ministry</a>
+                    <a href="#bridges" class="text-white hover:text-emerald-300 transition duration-300">Bridges</a>
+                    <a href="#isi" class="text-white hover:text-emerald-300 transition duration-300">ISI</a>
+                    <a href="#gallery" class="text-white hover:text-emerald-300 transition duration-300">Gallery</a>
+                    <a href="#contact" class="text-white hover:text-emerald-300 transition duration-300">Contact</a>
+                </div>
+                <button class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <section id="about" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>"The Lord has been my strength and guide through every trial..."</h2>
-                <p>Born and raised in a Christian family in India, my personal relationship with Jesus deepened through trials and experiences. From overcoming fear and stress with the promises of Scripture to trusting Him through a severe accident, I've seen God's faithfulness at every turn.</p>
-                <div class="photo-placeholder">
-                    <img src="images/profile.jpg" alt="Amith Pasam">
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 relative">
+                    <div class="w-full h-full rounded-2xl overflow-hidden shadow-xl">
+                        <img src="images/profile.jpg" alt="Amith Pasam" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-emerald-600 p-4 rounded-lg shadow-lg text-white">
+                        <i class="fas fa-quote-left text-3xl"></i>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-10 lg:mt-0">
+                    <h2 class="text-4xl font-bold mb-6 text-gray-800">"The Lord has been my strength and guide through every trial..."</h2>
+                    <p class="text-lg mb-6 text-gray-600">Born and raised in a Christian family in India, my personal relationship with Jesus deepened through trials and experiences. From overcoming fear and stress with the promises of Scripture to trusting Him through a severe accident, I've seen God's faithfulness at every turn.</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-emerald-100 p-3 rounded-full">
+                            <i class="fas fa-cross text-emerald-600 text-xl"></i>
+                        </div>
+                        <p class="text-gray-600">My journey has led me to minister to international students who face similar challenges.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="ministry" class="dark-section">
-        <div class="container">
-            <h2>My Ministry Calling</h2>
-            <p>Today, my ministry focuses on sharing the hope of Christ with international students like me. Having faced challenges as a student navigating new environments, I am passionate about helping others find their identity and purpose in Christ.</p>
-            <p>Inspired by the Great Commission, I serve with the goal of guiding international students to know Jesus, experience His love, and walk confidently in His plan for their lives.</p>
-        </div>
-    </section>
-
-    <section id="bridges">
-        <div class="container">
-            <h2>Bridges Ministry</h2>
-            <p>I'm actively involved with Bridges International, a ministry that exists "to see every international student wholeheartedly follow Jesus, both on campus and around the world."</p>
+    <!-- Ministry Calling Section -->
+    <section id="ministry" class="py-20 bg-emerald-700 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-emerald-200 font-semibold">MY CALLING</span>
+                <h2 class="text-4xl font-bold mt-2">My Ministry Calling</h2>
+                <div class="w-20 h-1 bg-emerald-300 mx-auto mt-4"></div>
+            </div>
             
-            <div class="card-container">
-                <div class="card">
-                    <h3>Our Vision</h3>
-                    <p>Growing genuine communities of international students who welcome seekers and help each other to follow Jesus.</p>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm border border-white border-opacity-20 testimonial-card">
+                        <i class="fas fa-quote-left text-emerald-200 text-3xl mb-4"></i>
+                        <p class="text-lg mb-6">Today, my ministry focuses on sharing the hope of Christ with international students like me. Having faced challenges as a student navigating new environments, I am passionate about helping others find their identity and purpose in Christ.</p>
+                        <div class="flex items-center">
+                            <div class="bg-emerald-500 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-hands-praying text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold">Amith Pasam</p>
+                                <p class="text-emerald-200 text-sm">Ministry Leader</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg text-emerald-700">
+                        <i class="fas fa-bible text-3xl"></i>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Our Approach</h3>
-                    <p>We empower international students to lead in ministry, reach their classmates with the gospel, and grow in Christ throughout their time in the U.S.</p>
-                </div>
-                <div class="card">
-                    <h3>Get Involved</h3>
-                    <p>Bridges offers multiple ways to engage from hospitality support to mentoring and leadership roles.</p>
-                    <a href="https://www.bridgesfriends.com/" class="btn">Learn More</a>
+                
+                <div>
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Inspired by the Great Commission</h3>
+                        <p class="text-emerald-100">I serve with the goal of guiding international students to know Jesus, experience His love, and walk confidently in His plan for their lives.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-emerald-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-globe-americas text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Global Perspective</h4>
+                                <p class="text-emerald-100">Understanding diverse cultural backgrounds to effectively share the Gospel.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-emerald-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Community Building</h4>
+                                <p class="text-emerald-100">Creating welcoming spaces for students to connect and grow spiritually.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="isi" class="background-section">
-      <div class="background-overlay"></div>
-      <div class="container">
-        <div class="content-wrapper">
-          <h2>International Students, Inc. (ISI)</h2>
-          <p>I serve with ISI, a ministry dedicated to reaching international students with the love of Christ and connecting them with local Christians.</p>
-          <p>ISI provides opportunities for friendship, cultural exchange, and spiritual growth for students far from home.</p>
-          <a href="https://internationalstudents.org/about-us/" class="btn">About ISI</a>
+    <!-- Bridges Ministry Section -->
+    <section id="bridges" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-emerald-600 font-semibold">PARTNERSHIP</span>
+                <h2 class="text-4xl font-bold mt-2">Bridges Ministry</h2>
+                <div class="w-20 h-1 bg-emerald-300 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="mb-12 max-w-3xl mx-auto text-center">
+                <p class="text-lg text-gray-600">I'm actively involved with Bridges International, a ministry that exists "to see every international student wholeheartedly follow Jesus, both on campus and around the world."</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-emerald-600 p-6 text-white">
+                        <i class="fas fa-eye text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold">Our Vision</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600">Growing genuine communities of international students who welcome seekers and help each other to follow Jesus.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-emerald-700 p-6 text-white">
+                        <i class="fas fa-hands-helping text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold">Our Approach</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600">We empower international students to lead in ministry, reach their classmates with the gospel, and grow in Christ throughout their time in the U.S.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-emerald-800 p-6 text-white">
+                        <i class="fas fa-user-plus text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold">Get Involved</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Bridges offers multiple ways to engage from hospitality support to mentoring and leadership roles.</p>
+                        <a href="https://www.bridgesfriends.com/" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-full transition duration-300">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- New Rotating Gallery Section -->
-    <section id="gallery" class="dark-section">
-        <div class="container">
-            <h2>Ministry Moments</h2>
-            <div class="rotating-gallery">
+    <!-- ISI Section with Parallax Effect -->
+    <section id="isi" class="py-32 bg-fixed bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-2xl mx-auto text-center text-white">
+                <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm border border-white border-opacity-20">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">International Students, Inc. (ISI)</h2>
+                    <p class="text-lg mb-6">I serve with ISI, a ministry dedicated to reaching international students with the love of Christ and connecting them with local Christians.</p>
+                    <p class="text-lg mb-8">ISI provides opportunities for friendship, cultural exchange, and spiritual growth for students far from home.</p>
+                    <a href="https://internationalstudents.org/about-us/" class="bg-white hover:bg-gray-100 text-emerald-700 font-bold py-3 px-6 rounded-full transition duration-300 inline-flex items-center">
+                        About ISI <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-emerald-600 font-semibold">MOMENTS</span>
+                <h2 class="text-4xl font-bold mt-2">Ministry Moments</h2>
+                <div class="w-20 h-1 bg-emerald-300 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="gallery-container rounded-2xl overflow-hidden shadow-xl relative">
                 <div class="gallery-item active">
-                    <img src="images/gallery1.jpg" alt="Ministry moment with students">
+                    <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Ministry moment with students" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 text-white">
+                        <h3 class="text-xl font-bold">Bible Study Group</h3>
+                        <p>Sharing God's word with international students</p>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/gallery2.jpg" alt="Bible study group">
+                    <img src="https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bible study group" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 text-white">
+                        <h3 class="text-xl font-bold">Campus Outreach</h3>
+                        <p>Engaging students in meaningful conversations</p>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/gallery3.jpg" alt="Campus outreach event">
+                    <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Campus outreach event" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 text-white">
+                        <h3 class="text-xl font-bold">Fellowship Dinner</h3>
+                        <p>Building community through shared meals</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-8">
+                <button id="prevBtn" class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-2 px-4 rounded-l-full border border-gray-300">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="nextBtn" class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-2 px-4 rounded-r-full border border-gray-300">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-emerald-600 font-semibold">CONNECT</span>
+                    <h2 class="text-4xl font-bold mt-2">Connect With Me</h2>
+                    <div class="w-20 h-1 bg-emerald-300 mx-auto mt-4"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">I'd love to hear from you!</h3>
+                        <p class="text-gray-600 mb-8">Whether you're interested in supporting the ministry, want to get involved, or just have questions, feel free to reach out.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-emerald-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-emerald-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">your.email@example.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-emerald-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone text-emerald-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">(123) 456-7890</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-emerald-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-emerald-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Location</h4>
+                                    <p class="text-gray-600">Serving international students across campuses</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <form class="bg-gray-50 p-8 rounded-xl shadow-md">
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent" placeholder="John Doe">
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent" placeholder="john@example.com">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent" placeholder="How can I help?"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="mt-16 text-center">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Support the Ministry</h3>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="https://internationalstudents.org/team/amith-pasam/" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 inline-flex items-center justify-center">
+                            <i class="fas fa-donate mr-2"></i> Financial Support
+                        </a>
+                        <a href="https://amith-pasam-isi.epistle.org/subscribe" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-full transition duration-300 inline-flex items-center justify-center">
+                            <i class="fas fa-envelope mr-2"></i> Newsletter Signup
+                        </a>
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 inline-flex items-center justify-center">
+                            <i class="fas fa-hands-helping mr-2"></i> Volunteer
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Connect With Me</h2>
-            <p>I'd love to share more about my ministry and how you can be involved in reaching international students for Christ.</p>
-            <div class="contact-info">
-                <p>Email: your.email@example.com</p>
-                <p>Phone: (123) 456-7890</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Amith Pasam</h3>
+                    <p class="text-gray-400">Ministry to International Students</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="md:ml-8">
+                        <a href="#" class="text-emerald-400 hover:text-emerald-300 font-medium">Privacy Policy</a>
+                        <span class="mx-2 text-gray-600">|</span>
+                        <a href="#" class="text-emerald-400 hover:text-emerald-300 font-medium">Terms of Service</a>
+                    </div>
+                </div>
             </div>
-            <div class="cta-buttons">
-                <a href="https://internationalstudents.org/team/amith-pasam/" class="btn giving-btn">Support My Ministry</a>
-                <a href="https://amith-pasam-isi.epistle.org/subscribe" class="btn subscribe-btn">Subscribe for Updates</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Amith Pasam - Ministry to International Students</p>
-            <div class="footer-links">
-                <a href="https://www.bridgesfriends.com/">Bridges International</a>
-                <a href="https://internationalstudents.org/">International Students, Inc.</a>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 Amith Pasam - Ministry to International Students. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="https://www.bridgesfriends.com/" class="text-gray-400 hover:text-white transition duration-300">Bridges International</a>
+                    <a href="https://internationalstudents.org/" class="text-gray-400 hover:text-white transition duration-300">International Students, Inc.</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-full shadow-lg transition duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-        // Auto-rotate gallery every 10 seconds
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+            
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.remove('opacity-100', 'visible');
+                backToTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Gallery functionality
         document.addEventListener('DOMContentLoaded', function() {
             const items = document.querySelectorAll('.gallery-item');
             let currentIndex = 0;
             
-            function rotateGallery() {
-                items[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % items.length;
-                items[currentIndex].classList.add('active');
+            function showItem(index) {
+                items.forEach(item => item.classList.remove('active'));
+                items[index].classList.add('active');
+                currentIndex = index;
             }
             
-            // Initial call and set interval
-            rotateGallery();
-            setInterval(rotateGallery, 10000); // 10 seconds
+            // Auto-rotate every 8 seconds
+            let galleryInterval = setInterval(() => {
+                let nextIndex = (currentIndex + 1) % items.length;
+                showItem(nextIndex);
+            }, 8000);
+            
+            // Manual navigation
+            document.getElementById('nextBtn').addEventListener('click', function() {
+                clearInterval(galleryInterval);
+                let nextIndex = (currentIndex + 1) % items.length;
+                showItem(nextIndex);
+                
+                // Restart auto-rotation
+                galleryInterval = setInterval(() => {
+                    nextIndex = (currentIndex + 1) % items.length;
+                    showItem(nextIndex);
+                }, 8000);
+            });
+            
+            document.getElementById('prevBtn').addEventListener('click', function() {
+                clearInterval(galleryInterval);
+                let prevIndex = (currentIndex - 1 + items.length) % items.length;
+                showItem(prevIndex);
+                
+                // Restart auto-rotation
+                galleryInterval = setInterval(() => {
+                    nextIndex = (currentIndex + 1) % items.length;
+                    showItem(nextIndex);
+                }, 8000);
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add fade-in animation to elements when they come into view
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fadeIn');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                fadeObserver.observe(element);
+            });
         });
     </script>
 </body>
